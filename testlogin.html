@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .login-container {
+            background-color: #333;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+        }
+
+        .login-container h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .input-block {
+            margin-bottom: 20px;
+        }
+
+        .input-block input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .input-block input::placeholder {
+            color: #aaa;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #555;
+        }
+
+        .links {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="input-block">
+            <input type="text" placeholder="Email or Phone Number" id="email-phone" />
+        </div>
+        <div class="input-block">
+            <input type="password" placeholder="Password" id="password" />
+        </div>
+        <button class="login-button" onclick="window.location.href='testcart.html';">Login</button>
+        <div class="links">
+            <a href="#">Forgot Password? </a>
+            <a href="testcreateaccounnt.html">Create Account</a>
+        </div>
+    </div>
+</body>
+</html>

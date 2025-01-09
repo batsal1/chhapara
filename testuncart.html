@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Header Styles */
+        .header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        .header .logo {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 24px;
+        }
+        .header .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .header .search-bar input {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        .header .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .header .search-bar button:hover {
+            background-color: #ddd;
+        }
+        .header .links a {
+            margin-left: 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .header .links a:hover {
+            color: #ddd;
+        }
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            padding-top: 20px;
+            z-index: 1000; /* Ensures the sidebar is above other content */
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        .sidebar .close-btn {
+            text-align: right;
+            padding-right: 20px;
+            cursor: pointer;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .sidebar ul li {
+            padding: 10px 20px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            color: #ddd;
+        }
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            margin-right: 20px;
+        }
+        /* Catalog Styles */
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin-left: 260px; /* Ensures content isn't blocked by the sidebar */
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .product-details {
+            padding: 10px;
+            text-align: center;
+        }
+        .product-details h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-details p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .add-to-cart {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .add-to-cart:hover {
+            background-color: #555;
+        }
+        .product:hover .add-to-cart {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+        <div class="logo">E-Commerce Website</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <div class="links">
+            <a href="#">Categories</a>
+            <a href="#">My Cart</a>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleSidebar()">✖</div>
+        <ul>
+            <li><a href="#">Men's Accessories</a></li>
+            <li><a href="#">Women's Fashion</a></li>
+            <li><a href="#">Party Requirements</a></li>
+            <li><a href="#">Baby Products</a></li>
+            <li><a href="#">Cosmetics</a></li>
+        </ul>
+    </aside>
+
+    <!-- Catalog -->
+    <main class="catalog">
+        <!-- Repeat the product block for each product -->
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product Image">
+            <div class="product-details">
+                <h3>Product Name</h3>
+                <p>$20.00</p>
+                <p>Short description of the product.</p>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <!-- Add 16 products similarly -->
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 30px auto;
+            background-color: #333;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: #333;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        CHHAPARA
+    </div>
+
+    <div class="form-container">
+        <h1>Create Account</h1>
+        <form>
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">PHONE NUMBER</label>
+                <input type="number" id="phone" placeholder="Enter your phone number">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">EMAIL (optional)</label>
+                <input type="text" id="email" placeholder="Enter your email">
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">ADDRESS</label>
+                <input type="text" id="address" placeholder="Enter your address">
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+                <label for="city">CITY</label>
+                <input type="text" id="city" placeholder="Enter your city">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Create Account</button>
+        </form>
+    </div>
+
+</body>
+</html>

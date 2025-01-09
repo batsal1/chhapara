@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .cart-item-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .cart-item-remove {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-item-remove:hover {
+            background-color: #555;
+        }
+
+        .total-container {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        My Cart
+    </div>
+
+    <div class="cart-container">
+        <div class="cart-title">Items in Your Cart</div>
+        <div id="cart-items">
+            <!-- JavaScript will dynamically insert cart items here -->
+        </div>
+        <div class="total-container" id="total-price">Total: $0.00</div>
+        <button class="checkout-button">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        // Sample product data (in a real app, this would come from a database or local storage)
+        const cartData = [
+            { id: 1, name: "Product 1", price: 19.99, image: "https://via.placeholder.com/60" },
+            { id: 2, name: "Product 2", price: 29.99, image: "https://via.placeholder.com/60" },
+            { id: 3, name: "Product 3", price: 14.99, image: "https://via.placeholder.com/60" }
+        ];
+
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceContainer = document.getElementById('total-price');
+
+        // Function to calculate the total price
+        const calculateTotalPrice = () => {
+            const total = cartData.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+            totalPriceContainer.textContent = `Total: $${total}`;
+        };
+
+        // Function to render cart items
+        const renderCartItems = () => {
+            cartItemsContainer.innerHTML = '';
+            cartData.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})">Remove</button>
+                `;
+
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            calculateTotalPrice();
+        };
+
+        // Function to remove an item from the cart
+        const removeFromCart = (id) => {
+            const index = cartData.findIndex(item => item.id === id);
+            if (index !== -1) {
+                cartData.splice(index, 1);
+                renderCartItems();
+            }
+        };
+
+        // Initial render
+        renderCartItems();
+    </script>
+
+</body>
+</html>
+
+
+
+Cart Data:
+A sample cartData array simulates products in the cart. Replace this with real data from a database or local storage.
+Rendering Items:
+The renderCartItems function dynamically creates cart item elements and displays them in the cart.
+Remove Item:
+The removeFromCart function allows users to remove an item from the cart, and the list updates dynamically.

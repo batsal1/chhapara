@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Header Styles */
+        .header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        .header .logo {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 24px;
+        }
+        .header .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .header .search-bar input {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        .header .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .header .search-bar button:hover {
+            background-color: #ddd;
+        }
+        .header .links a {
+            margin-left: 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .header .links a:hover {
+            color: #ddd;
+        }
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            padding-top: 20px;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        .sidebar .close-btn {
+            text-align: right;
+            padding-right: 20px;
+            cursor: pointer;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .sidebar ul li {
+            padding: 10px 20px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            color: #ddd;
+        }
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+        <div class="logo">CHHAPARA</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <div class="links">
+            <a href="#">Categories</a>
+            <a href="#">My Cart</a>
+ <!-- USER SECTION (CART AND USER ICON) --
+            <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
+            <a href="#" title="YOUR ACCOUNT"> <i class="fas fa-user-circle userIcon"></i> </a> <!-- Added Your Account Icon -->
+      
+
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleSidebar()">✖</div>
+        <ul>
+            <li><a href="#">Men's Accessories</a></li>
+            <li><a href="#">Women's Fashion</a></li>
+            <li><a href="#">Party Requirements</a></li>
+            <li><a href="#">Baby Products</a></li>
+            <li><a href="#">Cosmetics</a></li>
+        </ul>
+    </aside>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
